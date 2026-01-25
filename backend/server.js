@@ -28,7 +28,7 @@ app.post("/api/products", async (req, res) => {
   }
 });
 
-// Delete a product
+// Delete a product API
 app.delete("/api/products/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -46,6 +46,22 @@ app.delete("/api/products/:id", async (req, res) => {
     res
       .status(500)
       .json({ success: false, message: "database error: product not deleted" });
+  }
+});
+
+// Get all products API
+app.get("/api/products", async (req, res) => {
+  try {
+    const allProducts = await product.find({});
+
+    res.status(200).json({
+      success: true,
+      message: "products fetched successfully",
+      data: allProducts,
+    });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ success: false, message: "database server error" });
   }
 });
 
