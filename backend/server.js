@@ -1,7 +1,7 @@
 import express from "express";
 import connectDB from "./config/database.js";
 import product from "./models/product.model.js";
-import mongoose from "mongoose";
+import mongoose, { model } from "mongoose";
 
 const app = express();
 
@@ -62,6 +62,25 @@ app.get("/api/products", async (req, res) => {
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ success: false, message: "database server error" });
+  }
+});
+
+//Update Product
+app.patch("/api/products/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const updatedProduct = await product.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    res.status(200).json({
+      success: true,
+      message: "product updated",
+      data: updatedProduct,
+    });
+  } catch (error) {
+    console.log("server error", error.message);
+    res.status(500).json({ success: false, message: "Database error" });
   }
 });
 
