@@ -69,6 +69,12 @@ app.get("/api/products", async (req, res) => {
 app.patch("/api/products/:id", async (req, res) => {
   const { id } = req.params;
 
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res
+      .status(404)
+      .json({ success: false, message: "invalid Product ld" });
+  }
+
   try {
     const updatedProduct = await product.findByIdAndUpdate(id, req.body, {
       new: true,
