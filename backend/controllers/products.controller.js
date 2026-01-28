@@ -31,7 +31,13 @@ export const deleteProduct = async (req, res) => {
         .status(404)
         .json({ success: false, message: "The product was not found" });
     } else {
-      res.status(200).json({ success: true, message: "Product Deleted" });
+      res
+        .status(200)
+        .json({
+          success: true,
+          message: "Product Deleted",
+          data: deletedProduct,
+        });
     }
   } catch (error) {
     console.log("database error: object not deleted");

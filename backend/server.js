@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-// create a product
+// Products Routers
 app.use("/api/products", productRouter);
 
 app.listen(5000, () => {
