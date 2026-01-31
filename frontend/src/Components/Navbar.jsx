@@ -32,6 +32,7 @@ const Navbar = () => {
       position="sticky"
       top="0px"
       zIndex="100"
+      letterSpacing={"tighter"}
     >
       <Flex justifyContent="space-between">
         <Box>

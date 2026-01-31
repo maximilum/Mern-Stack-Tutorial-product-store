@@ -6,6 +6,7 @@ const ProductCard = (product) => {
   console.log(product.product);
   return (
     <Box
+      position="relative"
       w="300px"
       my="24px"
       borderRadius={"10px"}
@@ -19,14 +20,14 @@ const ProductCard = (product) => {
         boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
       }}
     >
-      <Box w={{ base: "100%" }} ratio={2 / 1}>
+      <Box w={{ base: "100%" }}>
         <Image src={image} borderTopRadius={"10px"} objectFit="cover"></Image>
       </Box>
       <Box py="20px" px="10px">
-        <Text as="h2" fontSize={"20px"} color="blackAlpha.900">
+        <Text as="h2" fontSize={"20px"} color="#5c0086" letterSpacing="tighter">
           {name}
         </Text>
-        <Text color="#674875" fontSize={"16px"}>
+        <Text color="#674875" fontSize={"14px"}>
           $ {price}
         </Text>
       </Box>
