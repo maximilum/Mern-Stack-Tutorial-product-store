@@ -1,9 +1,15 @@
 import express from "express";
 import connectDB from "./config/database.js";
+import cors from "cors";
 
 import productRouter from "./routes/products.route.js";
 
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Only allow your frontend
+  }),
+);
 
 app.use(express.json());
 
