@@ -10,8 +10,6 @@ import {
   Box,
 } from "@chakra-ui/react";
 
-import { createProduct } from "../store/productsSlice";
-
 const CreateProduct = () => {
   async function handleCreateProduct(event) {
     event.preventDefault();
