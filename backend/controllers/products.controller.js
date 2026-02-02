@@ -5,7 +5,7 @@ export const createProduct = async (req, res) => {
   const sentProduct = req.body;
 
   if (!sentProduct.name || !sentProduct.price || !sentProduct.image) {
-    res.status(400).json({ message: "All fields are required" });
+    return res.status(400).json({ message: "All fields are required" });
   }
   try {
     const newProduct = new product(sentProduct);
@@ -68,13 +68,18 @@ export const updateProduct = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res
       .status(404)
-      .json({ success: false, message: "invalid Product ld" });
+      .json({ success: false, message: "invalid Product id" });
   }
 
   try {
     const updatedProduct = await product.findByIdAndUpdate(id, req.body, {
       new: true,
     });
+    if (!updatedProduct) {
+      return res
+        .status(404)
+        .json({ success: false, message: "Product not found" });
+    }
     res.status(200).json({
       success: true,
       message: "product updated",

@@ -12,12 +12,7 @@ import { Link as ReactRouterLink } from "react-router";
 
 import { FaShoppingCart } from "react-icons/fa";
 import { MdLightMode } from "react-icons/md";
-import { MdDarkMode } from "react-icons/md";
 import { IoMdAdd } from "react-icons/io";
-
-{
-  /* <MdDarkMode /> */
-}
 
 const Navbar = () => {
   return (

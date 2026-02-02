@@ -1,10 +1,14 @@
 html,
 body {
-  width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
 
 a:hover {
   text-decoration: none;
+}
+
+* {
+  min-width: 0;
+  word-break: break-word;
 }

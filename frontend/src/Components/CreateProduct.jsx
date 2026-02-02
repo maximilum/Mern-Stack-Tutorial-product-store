@@ -3,12 +3,11 @@ import {
   Button,
   Field,
   Fieldset,
-  For,
   Input,
-  NativeSelect,
   Stack,
   Box,
 } from "@chakra-ui/react";
+import { API_BASE } from "../api/config";
 
 const CreateProduct = () => {
   async function handleCreateProduct(event) {
@@ -16,7 +15,7 @@ const CreateProduct = () => {
     const formData = new FormData(event.currentTarget);
     const formObject = Object.fromEntries(formData);
     try {
-      const res = await fetch("http://localhost:5000/api/products/", {
+      const res = await fetch(`${API_BASE}/products`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

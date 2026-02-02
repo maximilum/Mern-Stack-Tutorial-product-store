@@ -1,9 +1,8 @@
 import React from "react";
 import { Box, Text, Flex, Center, Image, AspectRatio } from "@chakra-ui/react";
 
-const ProductCard = (product) => {
-  const { name, price, image } = product.product;
-  console.log(product.product);
+const ProductCard = ({ product }) => {
+  const { name, price, image } = product;
   return (
     <Box
       position="relative"
@@ -11,7 +10,7 @@ const ProductCard = (product) => {
       my="24px"
       borderRadius={"10px"}
       overflow="hidden"
-      bg="gray.200"
+      // background="linear-gradient(47deg,rgba(107, 0, 92, 1) 0%, rgba(107, 0, 92, 0.14) 70%)"
       transition="all 0.2s ease-in-out"
       boxShadow="0px 10px 15px -3px rgba(0,0,0,0.1)"
       _hover={{
@@ -20,10 +19,17 @@ const ProductCard = (product) => {
         boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
       }}
     >
-      <Box w={{ base: "100%" }}>
-        <Image src={image} borderTopRadius={"10px"} objectFit="cover"></Image>
+      <Box w={{ base: "100%" }} p="1px" pb="0px">
+        <Image src={image} borderTopRadius={"9px"} objectFit="cover"></Image>
       </Box>
-      <Box py="20px" px="10px">
+      <Box
+        mb="1px"
+        py="15px"
+        mx="1px"
+        px="10px"
+        bg="white"
+        borderBottomRadius={"9px"}
+      >
         <Text as="h2" fontSize={"20px"} color="#5c0086" letterSpacing="tighter">
           {name}
         </Text>
