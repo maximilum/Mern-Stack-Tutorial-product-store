@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Field,
-  Fieldset,
-  Input,
-  Stack,
-  Box,
-} from "@chakra-ui/react";
+import { Button, Field, Fieldset, Input, Stack, Box } from "@chakra-ui/react";
 import { API_BASE } from "../api/config";
 
 const CreateProduct = () => {
@@ -22,11 +15,12 @@ const CreateProduct = () => {
         },
         body: JSON.stringify(formObject),
       });
-      // const payload = await res.json();
-      // const data = payload.data;
+      const payload = await res.json();
+      const data = payload.data;
       // console.log(payload);
+      // console.log(data);
     } catch (e) {
-      console.log(e.message);
+      console.log(e);
     }
   }
   return (
